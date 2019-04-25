@@ -2,6 +2,13 @@
 
 Backend implementation for [Tazman Marketplace](https://github.com/taqat/tazman).
 
+
+## Requirements
+
+* PHP 7.3+
+* PostgreSQL 11+
+
+
 ## Repository strucutre
 
 Repository is divided in subfolders.
