@@ -1,1 +1,170 @@
-# tazman-backend
+# Tazman Marketplace Backend
+
+Backend implementation for [Tazman Marketplace](https://github.com/taqat/tazman).
+
+## Repository strucutre
+
+Repository is divided in subfolders.
+
+ * `core` - Backend Core written in PHP
+ * `symfony` - PHP app created with [Symfony framework](https://symfony.com/); uses Core to provide an HTTP and CLI API for the app
+
+### Core 
+```
+- doc/
+- src/
+  - <component>
+    - Application/
+      - Command/
+        - <CommandName>/
+          - <CommandName>HandlerInterface.php
+          - <CommandName>Handler.php
+          - <CommandName>.php
+          - <CommandName>Result.php
+      - Query/
+        - <QueryName>/
+          - <QueryName>HandlerInterface.php
+          - <QueryName>Handler.php
+          - <QueryName>.php
+          - <QueryName>Result.php
+      - Event/
+        - <EventName>/
+          - <EventName>.php
+          - <EventName>HandlerInterface.php
+          - <SomeOtherEventName>HandlerInterface.php
+      - Service/
+    - Domain/
+      - Model/
+        - <EntityName>.php
+      - Event/
+        - <EventName>/
+          - <EventName>.php
+          - <EventName>HandlerInterface.php
+          - <SomeOtherEventName>HandlerInterface.php
+      - EntityRepository/
+        - <EntityName>/
+          - <EntityName>RepositoryInterface.php
+          - <RepositoryMethodParamName>RepositoryQuery.php
+      - EntityManager/
+        - <EntityName>/
+          - <EntityName>ManagerInterface.php
+      - Service/
+    - Infrastructure/
+      - Persistance/
+        - Doctrine/
+          - Application/
+            - Query/
+              - <QueryName>/
+                - Doctrine<QueryName>Handler.php
+          - Domain/
+            - EntityRepository/
+              - <EntityName>/
+                - Doctrine<EntityName>Repository.php
+            - EntityManager/
+              - <EntityName>/
+                - Doctrine<EntityName>Manager.php
+- test/
+- .gitignore
+- composer.json      
+- composer.lock
+- README.md
+```
+
+
+#### Namespaces
+
+[PSR4](https://www.php-fig.org/psr/psr-4/) standard **must** be followed. 
+
+|Namespace Prefix|Base dir|
+|---|---|
+|`\Taqat\Tazman\Core`|`../core/src`|
+
+### Symfony 
+
+```
+- bin/
+- doc/
+- config/
+- public/
+- src/
+  - Model/
+    - Command/
+      - <CliCommandName>/
+        - <CliCommandName>InputDto.php
+        - <CliCommandName>OutputDto.php
+    - Controller/
+      - Api/
+        - Auth/
+          - <ControllerName>
+            - <ControllerActionName>RequestDto.php
+            - <ControllerActionName>ResponseDto.php
+        - Common/
+          - <ControllerName>
+            - <ControllerActionName>RequestDto.php
+            - <ControllerActionName>ResponseDto.php
+        - Player/
+          - <ControllerName>
+            - <ControllerActionName>RequestDto.php
+            - <ControllerActionName>ResponseDto.php
+        - FacilityProvider/
+          - <ControllerName>
+            - <ControllerActionName>RequestDto.php
+            - <ControllerActionName>ResponseDto.php
+        - Admin/
+          - <ControllerName>
+            - <ControllerActionName>RequestDto.php
+            - <ControllerActionName>ResponseDto.php
+        - Public/
+          - <ControllerName>
+            - <ControllerActionName>RequestDto.php
+            - <ControllerActionName>ResponseDto.php
+  - Command/
+    - <CliCommandName>Command.php      
+  - Controller/
+    - Api/
+      - Auth/
+        - <ControllerName>Controller.php            
+      - Common/
+        - <ControllerName>Controller.php
+      - Player/
+        - <ControllerName>Controller.php
+      - FacilityProvider/
+        - <ControllerName>Controller.php
+      - Admin/
+        - <ControllerName>Controller.php
+      - Public/
+        - <ControllerName>Controller.php
+- tests/
+- var/
+- .gitignore
+- composer.json      
+- composer.lock
+- README.md
+```
+
+#### Namespaces
+
+[PSR4](https://www.php-fig.org/psr/psr-4/) standard **must** be followed. 
+
+|Namespace Prefix|Base dir|
+|---|---|
+|`\Taqat\Tazman\Symfony`|`../symfony/src`|
+
+
+
+## Commit messages convention
+
+Project **must** follow [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.3/#specification) guidelines.
+
+## Branching strategy
+
+Project **must** follow [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) branching strategy
+(a bit more details [here](https://nvie.com/posts/a-successful-git-branching-model/)).
+
+Branches should be prefixed with `<subfolder>/` where `<subfolder>` is [`kebab-cased`](http://wiki.c2.com/?KebabCase) path to the subfolder. Example: `core/player-registration`.
+
+Use [`kebab-case`](http://wiki.c2.com/?KebabCase) for branch name.
+
+## Versioning
+
+Project **must** follow [Semantic versioning](https://semver.org/).
