@@ -146,6 +146,10 @@ Repository is divided in subfolders.
       - Public/
         - <ControllerName>Controller.php
 - tests/
+  - functional/
+    - Controller/Api/Auth/<ControllerName>ControllerTest.php
+    - Command/<CliCommandName>CommandTest.php
+  - unit/
 - var/
 - .gitignore
 - composer.json      
