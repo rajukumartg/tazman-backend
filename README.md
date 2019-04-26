@@ -71,6 +71,10 @@ Repository is divided in subfolders.
               - <EntityName>/
                 - Doctrine<EntityName>Manager.php
 - test/
+  - functional/
+    - <component>/Application/Command/<CommandName>/<CommandName>HandlerTest.php
+    - <component>/Infrastructure/Persistance/Doctrine/Application/Query/<QueryName>/Doctrine<QueryName>HandlerTest.php
+  - unit/
 - .gitignore
 - composer.json      
 - composer.lock
